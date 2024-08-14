@@ -1,5 +1,8 @@
 import 'package:academix/Theme/themecolor.dart';
+import 'package:academix/widgets/basescreen_widgets/changepassword_widget.dart';
+import 'package:academix/widgets/basescreen_widgets/forgetpassword_widget.dart';
 import 'package:academix/widgets/basescreen_widgets/login_widget.dart';
+import 'package:academix/widgets/basescreen_widgets/otp_widget.dart';
 import 'package:flutter/material.dart';
 
 class BaseScreen extends StatefulWidget {
@@ -10,10 +13,12 @@ class BaseScreen extends StatefulWidget {
 }
 
 class _BaseScreenState extends State<BaseScreen> {
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -39,9 +44,11 @@ class _BaseScreenState extends State<BaseScreen> {
                   child: Text(
                     "Sign In",
                     style: TextStyle(
-                        color: Colors.white, fontSize: screenHeight * .035),
+                      color: Colors.white,
+                      fontSize: screenHeight * .035,
+                    ),
                   ),
-                )
+                ),
               ],
             ),
             Stack(
@@ -59,7 +66,7 @@ class _BaseScreenState extends State<BaseScreen> {
                       topRight: Radius.circular(20),
                     ),
                   ),
-                  child: LoginWidget(),
+                  child: LoginWidget()
                 ),
               ],
             ),

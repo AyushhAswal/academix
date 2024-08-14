@@ -1,84 +1,57 @@
+import 'package:academix/Theme/themecolor.dart';
+import 'package:academix/theme/themecolor.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
+import 'package:academix/Theme/themecolor.dart';
 
 class OtpWidget extends StatefulWidget {
   const OtpWidget({super.key});
 
   @override
-  State<OtpWidget> createState() => _OtpTextFieldState();
+  State<OtpWidget> createState() => _OtpWidgetState();
 }
 
-class _OtpTextFieldState extends State<OtpWidget> {
-  final pinController = TextEditingController();
-  final formKey = GlobalKey<FormState>();
-
-  @override
-  void dispose() {
-    pinController.dispose();
-    super.dispose();
-  }
-
-  final focusedBorderColor = Colors.black;
-  final fillColor = const Color.fromRGBO(243, 246, 249, 0);
-  final borderColor = Colors.grey[800]!;
+class _OtpWidgetState extends State<OtpWidget> {
   @override
   Widget build(BuildContext context) {
-    final defaultPinTheme = PinTheme(
-      width: 56,
-      height: 56,
-      textStyle: const TextStyle(fontSize: 22, color: Colors.black),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: borderColor),
-      ),
-    );
-
-    return Form(
-      key: formKey,
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    return Container(padding: EdgeInsets.symmetric(
+        horizontal: screenWidth * .08, vertical: screenHeight * .04),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Directionality(
-            // Specify direction if desired
-            textDirection: TextDirection.ltr,
-            child: Pinput(
-              length: 4,
-              controller: pinController,
-              defaultPinTheme: defaultPinTheme,
-              hapticFeedbackType: HapticFeedbackType.lightImpact,
-              onCompleted: (pin) {
-                debugPrint('onCompleted: $pin');
-              },
-              onChanged: (value) {
-                debugPrint('onChanged: $value');
-              },
-              cursor: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 9),
-                    width: 24,
-                    height: 2,
-                    color: Colors.black,
-                  ),
-                ],
-              ),
-              focusedPinTheme: defaultPinTheme.copyWith(
-                decoration: defaultPinTheme.decoration!.copyWith(
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: focusedBorderColor),
-                ),
-              ),
-              submittedPinTheme: defaultPinTheme.copyWith(
-                decoration: defaultPinTheme.decoration!.copyWith(
-                  color: fillColor,
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: focusedBorderColor),
-                ),
-              ),
-              errorPinTheme: defaultPinTheme.copyBorderWith(
-                border: Border.all(color: Colors.redAccent),
-              ),
+          Text(
+            "Enter OTP",
+            style: TextStyle(fontSize: screenWidth * .04),
+          ),
+          SizedBox(height: screenHeight * .01),
+          Pinput(
+            keyboardType: TextInputType.number,
+            length: 5,
+          ),
+          SizedBox(height: screenHeight * .01),Text(
+            "Send Again",
+            style: TextStyle(fontSize: screenWidth * .04,
+                color:Colors.redAccent[400]),
+          ),SizedBox(height: screenHeight * .15,),Container(
+            decoration: BoxDecoration(
+                color: Colors.redAccent[400],
+                borderRadius: BorderRadiusDirectional.circular(70)),
+            height: screenHeight * .054,
+            width: screenWidth,
+            child: Center(
+                child: Text(
+                  "Verify",
+                  style: TextStyle(color: Colors.white),
+                )),
+          ),Container(
+            width: screenWidth,
+            child: TextButton(
+              onPressed: () {},
+              child: Text("Cancel", style: TextStyle(
+                color: Colors.redAccent[400],
+              ),),
             ),
           ),
         ],

@@ -1,3 +1,4 @@
+import 'package:academix/widgets/dashboard_widgets/header_widget.dart';
 import 'package:academix/widgets/dashboard_widgets/homework_widget.dart';
 import 'package:academix/widgets/dashboard_widgets/noticeboard_widget.dart';
 
@@ -20,59 +21,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          children: [
-            Stack(
-              children: [
-                Container(
-                  height: screenHeight * .15,
-                  color: Colors.white,
-                ),
-                Container(
-                  height: screenHeight * .15,
-                  decoration: BoxDecoration(
-                    color: MyColors.primaryColor,
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(20),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  top: screenHeight * .08,
-                  left: 20,
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.grid_on,
-                        color: Colors.white,
-                      ),
-                      SizedBox(
-                        width: screenWidth * .05,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Ayush Aswal",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: screenWidth * .05),
-                          ),
-                          Text(
-                            "Bsc-IT",
-                            style: TextStyle(color: Colors.white70),
-                          )
-                        ],
-                      ),
-                      SizedBox(width: screenWidth * 0.35),
-                      CircleAvatar(
-                        backgroundImage: AssetImage('lib/images/avatar.jpg'),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            Stack(
+          children: [HeaderWidget ()
+            ,Stack(
               children: [
                 Container(
                   height: screenHeight * .15,

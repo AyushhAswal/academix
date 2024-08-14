@@ -1,15 +1,13 @@
-import 'package:academix/screens/dashboard_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-class LoginWidget extends StatefulWidget {
-  const LoginWidget({super.key});
+class ChangepasswordWidget extends StatefulWidget {
+  const ChangepasswordWidget({super.key});
 
   @override
-  State<LoginWidget> createState() => _LoginWidgetState();
+  State<ChangepasswordWidget> createState() => _ChangepasswordWidgetState();
 }
 
-class _LoginWidgetState extends State<LoginWidget> {
+class _ChangepasswordWidgetState extends State<ChangepasswordWidget> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery
@@ -28,45 +26,27 @@ class _LoginWidgetState extends State<LoginWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Phone No.
-              Text("Phone Number"),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    child:
-                    Text("+91", style: TextStyle(fontSize: screenWidth * .06)),
-                  ),
-                  Container(
-                    width: screenWidth * .7,
-                    child: TextFormField(
-                      style: TextStyle(fontSize: screenWidth * .06),
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                          hintText: "Enter your phone no.",
-                          hintStyle: TextStyle(fontSize: screenWidth * .06),
-                          border: InputBorder.none),
-                    ),
-                  ),
-                ],
+              Text(" Create New Password"),
+              TextFormField(
+                obscuringCharacter: "*",
+                obscureText: true,
+                decoration: InputDecoration(
+                    hintText: "Enter your New Password", border: InputBorder.none),
               ),
               SizedBox(
                 height: screenHeight * .06,
               ),
 
               // Password
-              Text("Password"),
+              Text("Confrim New Password"),
               TextFormField(
                 obscuringCharacter: "*",
                 obscureText: true,
                 decoration: InputDecoration(
-                    hintText: "* * * * * * * * * *", border: InputBorder.none),
+                    hintText: "Enter your New Password", border: InputBorder.none),
               ),
               SizedBox(height: screenHeight * .05),
-              GestureDetector(onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => DashboardScreen(),));
-              },
+              GestureDetector(
                 child: Container(
                   decoration: BoxDecoration(
                       color: Colors.redAccent[400],
@@ -75,7 +55,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                   width: screenWidth,
                   child: Center(
                       child: Text(
-                        "Sign In",
+                        "Submit",
                         style: TextStyle(color: Colors.white),
                       )),
                 ),
@@ -88,7 +68,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                 child: TextButton(
                   onPressed: () {
                   },
-                  child: Text("Forgot Password", style: TextStyle(
+                  child: Text("Cancel", style: TextStyle(
                     color: Colors.redAccent[400],
                   ),),
                 ),

@@ -21,13 +21,13 @@ class _HomeworkWidgetState extends State<HomeworkWidget> {
     return Container(
       decoration: BoxDecoration(
         color: Colors.orangeAccent[100],
-        borderRadius: BorderRadius.all(Radius.circular(15)),
+        borderRadius: const BorderRadius.all(Radius.circular(15)),
       ),
       height: screenHeight * .075,
       width: screenWidth * .9,
       child: Row(
         children: [
-          Checkbox(shape: CircleBorder(),
+          Checkbox(shape: const CircleBorder(),
             value: isChecked,
             onChanged: (bool? value) {
               setState(() {
@@ -45,7 +45,7 @@ class _HomeworkWidgetState extends State<HomeworkWidget> {
                   Text(widget.text),
                   Text(
                     "${widget.subject} / Today",
-                    style: TextStyle(color: Colors.black38),
+                    style: const TextStyle(color: Colors.black38),
                   ),
                 ],
               ),
