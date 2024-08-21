@@ -1,4 +1,5 @@
 import 'package:academix/Theme/themecolor.dart';
+import 'package:academix/widgets/Reportcard_widgets/reportcardsection_widget.dart';
 import 'package:flutter/material.dart';
 
 class ReportcardScreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class _ReportcardScreenState extends State<ReportcardScreen> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    return Scaffold(
+    return Scaffold( backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -71,161 +72,82 @@ class _ReportcardScreenState extends State<ReportcardScreen> {
                   color: MyColors.primaryColor,
                 ),
                 Container(
-                  height: screenHeight,
-                  width: screenWidth,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(20),
-                    ),
-                  ),
-                  child: Container(
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 30,left: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Text(
-                                "Class 7th (2015-16)",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ),
-                              ),
-                              SizedBox(
-                                width: screenWidth * .4,
-                              ),
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                color: MyColors.primaryColor,
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: screenHeight * .02,
-                          ),
-                          Divider(),
-                          SizedBox(
-                            height: screenHeight * .02,
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "Class 8th (2016-17)",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ),
-                              ),
-                              SizedBox(
-                                width: screenWidth * .4,
-                              ),
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                color: MyColors.primaryColor,
-                              )
-                            ],
-                          ),SizedBox(
-                            height: screenHeight * .02,
-                          ),
-                          Divider(),
-                          SizedBox(
-                            height: screenHeight * .02,
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "Class 9th (2017-18)",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ),
-                              ),
-                              SizedBox(
-                                width: screenWidth * .4,
-                              ),
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                color: MyColors.primaryColor,
-                              )
-                            ],
-                          ),SizedBox(
-                            height: screenHeight * .02,
-                          ),
-                          Divider(),
-                          SizedBox(
-                            height: screenHeight * .02,
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "Class 10th (2018-19)",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ),
-                              ),
-                              SizedBox(
-                                width: screenWidth * .37,
-                              ),
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                color: MyColors.primaryColor,
-                              )
-                            ],
-                          ),SizedBox(
-                            height: screenHeight * .02,
-                          ),
-                          Divider(),
-                          SizedBox(
-                            height: screenHeight * .02,
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "Class 11th (2019-20)",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ),
-                              ),
-                              SizedBox(
-                                width: screenWidth * .37,
-                              ),
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                color: MyColors.primaryColor,
-                              )
-                            ],
-                          ),SizedBox(
-                            height: screenHeight * .02,
-                          ),
-                          Divider(),
-                          SizedBox(
-                            height: screenHeight * .02,
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "Class 12th (2020-21)",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ),
-                              ),
-                              SizedBox(
-                                width: screenWidth * .37,
-                              ),
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                color: MyColors.primaryColor,
-                              )
-                            ],
-                          ), SizedBox(
-                            height: screenHeight * .02,
-                          ),
-                          Divider(),
-                        ],
+
+                    width: screenWidth,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(20),
                       ),
                     ),
-                  ),
-                )
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 30, left: 20),
+                      child: Column(
+                        children: [
+                          ReportcardsectionWidget(
+                            text: "Class 7th (2015-16)",
+                          ),
+                          SizedBox(
+                            height: screenHeight * .02,
+                          ),
+                          Divider(),
+                          SizedBox(
+                            height: screenHeight * .02,
+                          ),
+                          ReportcardsectionWidget(
+                            text: "Class 8th (2016-17)",
+                          ),
+                          SizedBox(
+                            height: screenHeight * .02,
+                          ),
+                          Divider(),
+                          SizedBox(
+                            height: screenHeight * .02,
+                          ),
+                          ReportcardsectionWidget(
+                            text: "Class 9th (2017-18)",
+                          ),
+                          SizedBox(
+                            height: screenHeight * .02,
+                          ),
+                          Divider(),
+                          SizedBox(
+                            height: screenHeight * .02,
+                          ),
+                          ReportcardsectionWidget(
+                            text: "Class 10th (2018-19)",
+                          ),
+                          SizedBox(
+                            height: screenHeight * .02,
+                          ),
+                          Divider(),
+                          SizedBox(
+                            height: screenHeight * .02,
+                          ),
+                          ReportcardsectionWidget(
+                            text: "Class 11th (2019-20)",
+                          ),
+                          SizedBox(
+                            height: screenHeight * .02,
+                          ),
+                          Divider(),
+                          SizedBox(
+                            height: screenHeight * .02,
+                          ),
+
+                          ReportcardsectionWidget(
+                            text: "Class 12th (2020-21)",
+                          ),
+                          SizedBox(
+                            height: screenHeight * .02,
+                          ),
+                          Divider(),
+                          SizedBox(
+                            height: screenHeight * .02,
+                          )
+                        ],
+                      ),
+                    ))
               ],
             )
           ],
