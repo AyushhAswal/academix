@@ -5,8 +5,12 @@ class NoticeboardWidget extends StatefulWidget {
   final String text;
   final String date;
 
+
   const NoticeboardWidget(
-      {super.key, required this.colors, required this.text,required this. date});
+      {super.key,
+      required this.colors,
+      required this.text,
+      required this.date});
 
   @override
   State<NoticeboardWidget> createState() => _NoticeboardWidgetState();
@@ -19,7 +23,7 @@ class _NoticeboardWidgetState extends State<NoticeboardWidget> {
     double screenHeight = MediaQuery.of(context).size.height;
     return Container(
       height: screenHeight * .2,
-      width: screenWidth * .5,
+      width: screenWidth * .45,
       decoration: BoxDecoration(
         color: widget.colors,
         borderRadius: BorderRadius.all(
@@ -27,12 +31,24 @@ class _NoticeboardWidgetState extends State<NoticeboardWidget> {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(left: 20,bottom: 10),
+        padding: const EdgeInsets.only(top: 10,left: 15),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(widget.text), Text(widget.date,style: TextStyle(color: Colors.black38),)
+            Container( height: screenHeight * .07,width: screenWidth * .2,
+              decoration: BoxDecoration( borderRadius: BorderRadiusDirectional.circular(8),
+                  image: DecorationImage(
+                      image: AssetImage("assets/images/school.jpg"),
+                      fit: BoxFit.cover)),
+            ), SizedBox(
+              height: screenHeight * .01,
+            ),
+            Text(widget.text),
+            Text(
+              widget.date,
+              style: TextStyle(color: Colors.black38),
+            )
           ],
         ),
       ),

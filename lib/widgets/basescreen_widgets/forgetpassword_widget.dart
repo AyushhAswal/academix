@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ForgetpasswordWidget extends StatefulWidget {
-  const ForgetpasswordWidget({super.key});
+  final VoidCallback onBackToLogin;
+  final VoidCallback onGenerateOtp;
+  const ForgetpasswordWidget({super.key , required this .onBackToLogin , required this .onGenerateOtp});
 
   @override
   State<ForgetpasswordWidget> createState() => _ForgetpasswordWidgetState();
@@ -17,62 +19,62 @@ class _ForgetpasswordWidgetState extends State<ForgetpasswordWidget> {
           horizontal: screenWidth * .08, vertical: screenHeight * .04),
       child: Form(
           child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Phone No.
-          Text("Phone Number"),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                child:
+              // Phone No.
+              Text("Phone Number"),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    child:
                     Text("+91", style: TextStyle(fontSize: screenWidth * .06)),
+                  ),
+                  Container(
+                    width: screenWidth * .7,
+                    child: TextFormField(
+                      style: TextStyle(fontSize: screenWidth * .06),
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                          hintText: "Enter your phone no.",
+                          hintStyle: TextStyle(fontSize: screenWidth * .06),
+                          border: InputBorder.none),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: screenHeight * .2,
+              ),
+              GestureDetector(
+                onTap:widget.onGenerateOtp,
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.redAccent[400],
+                      borderRadius: BorderRadiusDirectional.circular(70)),
+                  height: screenHeight * .054,
+                  width: screenWidth,
+                  child: const Center(
+                      child: Text(
+                        "Generate OTP",
+                        style: TextStyle(color: Colors.white),
+                      )),
+                ),
+              ),
+              SizedBox(
+                height: screenHeight * .005,
               ),
               Container(
-                width: screenWidth * .7,
-                child: TextFormField(
-                  style: TextStyle(fontSize: screenWidth * .06),
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                      hintText: "Enter your phone no.",
-                      hintStyle: TextStyle(fontSize: screenWidth * .06),
-                      border: InputBorder.none),
+                width: screenWidth,
+                child: TextButton(
+                  onPressed: widget.onBackToLogin,
+                  child: Text("Cancel", style: TextStyle(
+                    color: Colors.redAccent[400],
+                  ),),
                 ),
               ),
             ],
-          ),
-          SizedBox(
-            height: screenHeight * .2,
-          ),
-          GestureDetector(
-            onTap: () {},
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Colors.redAccent[400],
-                  borderRadius: BorderRadiusDirectional.circular(70)),
-              height: screenHeight * .054,
-              width: screenWidth,
-              child: const Center(
-                  child: Text(
-                "Generate OTP",
-                style: TextStyle(color: Colors.white),
-              )),
-            ),
-          ),
-          SizedBox(
-            height: screenHeight * .005,
-          ),
-          Container(
-            width: screenWidth,
-            child: TextButton(
-              onPressed: () {},
-              child: Text("Cancel", style: TextStyle(
-                color: Colors.redAccent[400],
-              ),),
-            ),
-          ),
-        ],
-      )),
+          )),
     );
   }
 }

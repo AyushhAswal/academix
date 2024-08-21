@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ChangepasswordWidget extends StatefulWidget {
-  const ChangepasswordWidget({super.key});
+  final VoidCallback onCancel;
+
+  const ChangepasswordWidget({super.key , required this .onCancel});
 
   @override
   State<ChangepasswordWidget> createState() => _ChangepasswordWidgetState();
@@ -65,9 +67,8 @@ class _ChangepasswordWidgetState extends State<ChangepasswordWidget> {
               ),
               Container(
                 width: screenWidth,
-                child: TextButton(
-                  onPressed: () {
-                  },
+                child: TextButton( onPressed: widget.onCancel,
+
                   child: Text("Cancel", style: TextStyle(
                     color: Colors.redAccent[400],
                   ),),

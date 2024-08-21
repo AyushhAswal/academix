@@ -1,3 +1,4 @@
+import 'package:academix/Theme/themecolor.dart';
 import 'package:flutter/material.dart';
 
 class HomeworkWidget extends StatefulWidget {
@@ -20,7 +21,7 @@ class _HomeworkWidgetState extends State<HomeworkWidget> {
 
     return Container(
       decoration: BoxDecoration(
-        color: Colors.orangeAccent[100],
+        color:  MyColors.homeworkColor,
         borderRadius: const BorderRadius.all(Radius.circular(15)),
       ),
       height: screenHeight * .075,

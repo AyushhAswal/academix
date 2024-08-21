@@ -1,6 +1,7 @@
 import 'package:academix/widgets/dashboard_widgets/header_widget.dart';
 import 'package:academix/widgets/dashboard_widgets/homework_widget.dart';
-import 'package:academix/widgets/dashboard_widgets/noticeboard_widget.dart';
+
+import 'package:academix/widgets/noticeboard_widget/noticeboard_widget.dart';
 
 import 'package:flutter/material.dart';
 import '../Theme/themecolor.dart';
@@ -67,19 +68,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               SizedBox(width: 20),
                               NoticeboardWidget(
                                 date: "05 March 2020",
-                                colors: Colors.lightBlueAccent,
+                                colors: Colors.blue[100],
                                 text: "Exams start from \n next week",
                               ),
                               SizedBox(width: 20),
                               NoticeboardWidget(
                                 date: "10 March 2020",
-                                colors: Colors.orangeAccent[100],
+                                colors: Colors.red[100],
                                 text: "Parent-Teacher \n meeting on Friday",
                               ),
                               SizedBox(width: 20),
                               NoticeboardWidget(
                                 date: "12 March 2020",
-                                colors: Colors.pinkAccent[100],
+                                colors: Colors.greenAccent[100],
                                 text: "Annual Sports Day \n on Saturday",
                               ),
                             ],

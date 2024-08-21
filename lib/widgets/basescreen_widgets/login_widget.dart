@@ -1,9 +1,14 @@
+import 'package:academix/screens/calendar_screen.dart';
 import 'package:academix/screens/dashboard_screen.dart';
+import 'package:academix/screens/feedetails_screen.dart';
+import 'package:academix/screens/homework_screen.dart';
+import 'package:academix/widgets/basescreen_widgets/forgetpassword_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class LoginWidget extends StatefulWidget {
-  const LoginWidget({super.key});
+  final VoidCallback onForgotPassword;
+  const LoginWidget({super.key ,required this .onForgotPassword});
 
   @override
   State<LoginWidget> createState() => _LoginWidgetState();
@@ -12,14 +17,8 @@ class LoginWidget extends StatefulWidget {
 class _LoginWidgetState extends State<LoginWidget> {
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery
-        .of(context)
-        .size
-        .width;
-    double screenHeight = MediaQuery
-        .of(context)
-        .size
-        .height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Container(
       padding: EdgeInsets.symmetric(
           horizontal: screenWidth * .08, vertical: screenHeight * .04),
@@ -59,14 +58,18 @@ class _LoginWidgetState extends State<LoginWidget> {
                 obscuringCharacter: "*",
                 obscureText: true,
                 decoration: InputDecoration(
-                    hintText: "* * * * * * * * * *", border: InputBorder.none),
+                    hintText: "Enter your Password", border: InputBorder.none),
               ),
               SizedBox(height: screenHeight * .05),
-              GestureDetector(onTap: () {
-                Navigator.push(
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => DashboardScreen(),));
-              },
+                    MaterialPageRoute(
+                      builder: (context) => DashboardScreen(),
+                    ),
+                  );
+                },
                 child: Container(
                   decoration: BoxDecoration(
                       color: Colors.redAccent[400],
@@ -86,11 +89,13 @@ class _LoginWidgetState extends State<LoginWidget> {
               Container(
                 width: screenWidth,
                 child: TextButton(
-                  onPressed: () {
-                  },
-                  child: Text("Forgot Password", style: TextStyle(
-                    color: Colors.redAccent[400],
-                  ),),
+                  onPressed:  widget.onForgotPassword,
+                  child: Text(
+                    "Forgot Password",
+                    style: TextStyle(
+                      color: Colors.redAccent[400],
+                    ),
+                  ),
                 ),
               ),
             ],
