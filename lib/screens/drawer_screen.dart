@@ -1,5 +1,7 @@
 import 'package:academix/Theme/themecolor.dart';
 import 'package:academix/screens/academicyear_screen.dart';
+import 'package:academix/screens/attendance_screen.dart';
+import 'package:academix/screens/attendance_screen.dart';
 import 'package:academix/screens/calendar_screen.dart';
 import 'package:academix/screens/dashboard_screen.dart';
 import 'package:academix/screens/examination_screen.dart';
@@ -9,7 +11,7 @@ import 'package:academix/screens/multimedia_screen.dart';
 import 'package:academix/screens/noticeboard_screen.dart';
 import 'package:academix/screens/profile_screen.dart';
 import 'package:academix/screens/reportcard_screen.dart';
-import 'package:academix/screens/try.dart';
+
 import 'package:academix/widgets/drawer_widgets/options_widget.dart';
 import 'package:academix/widgets/others/headerforallscreens_widget.dart';
 import 'package:flutter/material.dart';
@@ -107,9 +109,18 @@ class _DrawerScreenState extends State<DrawerScreen> {
                               icon: Icon(Icons.menu_book_sharp),
                             ),
                           ),
-                          OptionsWidget(
-                              text: "Attendance",
-                              icon: Icon(Icons.architecture)),
+                          GestureDetector(onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>AttendanceScreen(),
+                              ),
+                            );
+                          },
+                            child: OptionsWidget(
+                                text: "Attendance",
+                                icon: Icon(Icons.architecture)),
+                          ),
                         ],
                       ),
                       SizedBox(
@@ -147,7 +158,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>Try (),
+                                builder: (context) =>ReportcardScreen (),
                               ),
                             );
                           },

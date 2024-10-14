@@ -1,4 +1,5 @@
 import 'package:academix/Theme/themecolor.dart';
+import 'package:academix/screens/specificreportcard_screen.dart';
 import 'package:academix/widgets/Reportcard_widgets/reportcardsection_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -135,8 +136,17 @@ class _ReportcardScreenState extends State<ReportcardScreen> {
                             height: screenHeight * .02,
                           ),
 
-                          ReportcardsectionWidget(
-                            text: "Class 12th (2020-21)",
+                          GestureDetector( onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SpecificreportcardScreen(),
+                              ),
+                            );
+                          },
+                            child: ReportcardsectionWidget(
+                              text: "Class 12th (2020-21)",
+                            ),
                           ),
                           SizedBox(
                             height: screenHeight * .02,

@@ -6,5 +6,6 @@ class MyColors {
   static Color homeworkColor =  const  Color.fromRGBO(255,241,236,1);
   static Color feedetails =  const  Color.fromRGBO(201,232,241,1);
   static Color examinationsection =  const  Color.fromRGBO(212,255,234,1);
+  static Color remarks =  const  Color.fromRGBO(255,233,212,1);
 
 }
